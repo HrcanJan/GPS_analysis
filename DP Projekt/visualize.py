@@ -2,10 +2,17 @@ import networkx as nx
 import plotly.graph_objects as go
 import json
 
-# Load meeting data from JSON file
-with open("./files/meeting_data.json", "r") as json_file:
-    meeting_data = [json.loads(line) for line in json_file]
+meeting_data = []  # Initialize an empty list to store the loaded JSON objects
 
+# Open the JSON file for reading
+with open("./files/meeting_data.json", "r") as json_file:
+    for line in json_file:
+        try:
+            # Load each line as a separate JSON object
+            meeting_info = json.loads(line)
+            meeting_data.append(meeting_info)
+        except json.JSONDecodeError as e:
+            print(f"Error decoding JSON: {e}")
 # Create a NetworkX graph
 G = nx.Graph()
 
