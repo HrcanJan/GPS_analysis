@@ -3,7 +3,7 @@ import plotly.graph_objects as go
 import json
 from datetime import datetime
 
-meeting_data = []  # Initialize an empty list to store the loaded JSON objects
+meeting_data = []
 
 # Open the JSON file for reading
 with open("./files/meeting_data.json", "r") as json_file:
@@ -14,9 +14,11 @@ with open("./files/meeting_data.json", "r") as json_file:
             meeting_data.append(meeting_info)
         except json.JSONDecodeError as e:
             print(f"Error decoding JSON: {e}")
+            
 # Create a NetworkX graph
 G = nx.Graph()
 
+include_time = True
 time_threshold = 3600
 
 for meeting in meeting_data:
@@ -25,13 +27,16 @@ for meeting in meeting_data:
     timestamp1 = datetime.strptime(meeting["Timestamp1"], "%Y-%m-%d %H:%M:%S")
     timestamp2 = datetime.strptime(meeting["Timestamp2"], "%Y-%m-%d %H:%M:%S")
     
-    # Check if timestamps are fairly close (within the time threshold)
-    if abs((timestamp1 - timestamp2).total_seconds()) <= time_threshold:
+    if include_time == True:
+        if abs((timestamp1 - timestamp2).total_seconds()) <= time_threshold:
+            G.add_node(taxi1)
+            G.add_node(taxi2)
+            G.add_edge(taxi1, taxi2)
+    else:
         G.add_node(taxi1)
         G.add_node(taxi2)
         G.add_edge(taxi1, taxi2)
 
-# Create a Plotly figure for the interactive graph
 pos = nx.spring_layout(G)
 
 # Convert node labels to strings
