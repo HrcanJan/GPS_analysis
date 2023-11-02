@@ -1,6 +1,7 @@
 import networkx as nx
 import plotly.graph_objects as go
 import json
+from datetime import datetime
 
 meeting_data = []  # Initialize an empty list to store the loaded JSON objects
 
@@ -16,14 +17,19 @@ with open("./files/meeting_data.json", "r") as json_file:
 # Create a NetworkX graph
 G = nx.Graph()
 
-# Add nodes and edges based on meeting data
+time_threshold = 3600
+
 for meeting in meeting_data:
     taxi1 = meeting["Taxi1"]
     taxi2 = meeting["Taxi2"]
+    timestamp1 = datetime.strptime(meeting["Timestamp1"], "%Y-%m-%d %H:%M:%S")
+    timestamp2 = datetime.strptime(meeting["Timestamp2"], "%Y-%m-%d %H:%M:%S")
     
-    G.add_node(taxi1)
-    G.add_node(taxi2)
-    G.add_edge(taxi1, taxi2)
+    # Check if timestamps are fairly close (within the time threshold)
+    if abs((timestamp1 - timestamp2).total_seconds()) <= time_threshold:
+        G.add_node(taxi1)
+        G.add_node(taxi2)
+        G.add_edge(taxi1, taxi2)
 
 # Create a Plotly figure for the interactive graph
 pos = nx.spring_layout(G)
