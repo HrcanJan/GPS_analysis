@@ -20,22 +20,24 @@ G = nx.Graph()
 
 include_time = True
 time_threshold = 60
+distance_threshold = 0.1 # 100 meters
 
 for meeting in meeting_data:
-    taxi1 = meeting["Taxi1"]
-    taxi2 = meeting["Taxi2"]
-    timestamp1 = datetime.strptime(meeting["Timestamp1"], "%Y-%m-%d %H:%M:%S")
-    timestamp2 = datetime.strptime(meeting["Timestamp2"], "%Y-%m-%d %H:%M:%S")
-    
-    if include_time == True:
-        if abs((timestamp1 - timestamp2).total_seconds()) <= time_threshold:
+    if(meeting["Distance (meters)"] < distance_threshold):
+        taxi1 = meeting["Taxi1"]
+        taxi2 = meeting["Taxi2"]
+        timestamp1 = datetime.strptime(meeting["Timestamp1"], "%Y-%m-%d %H:%M:%S")
+        timestamp2 = datetime.strptime(meeting["Timestamp2"], "%Y-%m-%d %H:%M:%S")
+        
+        if include_time == True:
+            if abs((timestamp1 - timestamp2).total_seconds()) <= time_threshold:
+                G.add_node(taxi1)
+                G.add_node(taxi2)
+                G.add_edge(taxi1, taxi2)
+        else:
             G.add_node(taxi1)
             G.add_node(taxi2)
             G.add_edge(taxi1, taxi2)
-    else:
-        G.add_node(taxi1)
-        G.add_node(taxi2)
-        G.add_edge(taxi1, taxi2)
 
 pos = nx.spring_layout(G)
 
