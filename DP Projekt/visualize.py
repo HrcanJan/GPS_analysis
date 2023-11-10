@@ -6,7 +6,7 @@ from datetime import datetime
 meeting_data = []
 
 # Open the JSON file for reading
-with open("./files/meeting_data.json", "r") as json_file:
+with open("./files/meeting_data_geolife2.json", "r") as json_file:
     for line in json_file:
         try:
             # Load each line as a separate JSON object
@@ -19,7 +19,7 @@ with open("./files/meeting_data.json", "r") as json_file:
 G = nx.Graph()
 
 include_time = True
-time_threshold = 3600
+time_threshold = 60
 
 for meeting in meeting_data:
     taxi1 = meeting["Taxi1"]
