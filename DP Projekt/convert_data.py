@@ -9,7 +9,7 @@ def load_json(file_path):
 
 def extract_unique_pairs(data):
 	include_time = True
-	time_threshold = 60 # seconds
+	time_threshold = 60 * 60 * 24 # seconds
 
 	unique_pairs = set()
 	for entry in data:
@@ -42,5 +42,5 @@ def process_json(json_file_path, csv_file_path):
 	print(f"Unique pairs saved to {csv_file_path}")
 
 if __name__ == "__main__":
-	process_json('./files/geolife.json', './files/geolife_time_1min.csv')
-	process_json('./files/tdrive.json', './files/tdrive_time_1min.csv')
+	process_json('./files/geolife.json', './files/geolife_time_1day.csv')
+	process_json('./files/tdrive.json', './files/tdrive_time_1day.csv')

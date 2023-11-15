@@ -6,7 +6,7 @@ from datetime import datetime
 meeting_data = []
 
 # Open the JSON file for reading
-with open("./files/tdrive.json", "r") as json_file:
+with open("./files/geolife.json", "r") as json_file:
 	meeting_data = json.load(json_file)
 
 # Create a NetworkX graph
@@ -14,7 +14,7 @@ G = nx.Graph()
 
 include_time = False
 time_threshold = 60 # 60 seconds
-distance_threshold = 0.1 # 100 meters
+distance_threshold = 0.005 # 100 meters
 
 for meeting in meeting_data:
 	if(meeting["Distance (meters)"] < distance_threshold):

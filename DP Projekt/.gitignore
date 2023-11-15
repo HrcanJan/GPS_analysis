@@ -4,3 +4,5 @@ data3
 model
 documentation
 files
+lib
+__pycache__
