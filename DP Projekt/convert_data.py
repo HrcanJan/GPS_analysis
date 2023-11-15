@@ -1,5 +1,6 @@
 import json
 import csv
+from datetime import datetime
 
 def load_json(file_path):
 	with open(file_path, 'r') as json_file:
@@ -7,14 +8,22 @@ def load_json(file_path):
 	return data
 
 def extract_unique_pairs(data):
+	include_time = True
+	time_threshold = 60 # seconds
+
 	unique_pairs = set()
 	for entry in data:
 		taxi1 = entry.get('Taxi1')
 		taxi2 = entry.get('Taxi2')
 
+		timestamp1 = datetime.strptime(entry.get('Timestamp1'), "%Y-%m-%d %H:%M:%S")
+		timestamp2 = datetime.strptime(entry.get('Timestamp2'), "%Y-%m-%d %H:%M:%S")
+
 		if taxi1 is not None and taxi2 is not None:
-			pair = tuple(sorted([taxi1, taxi2]))
-			unique_pairs.add(pair)
+			if include_time == True:
+				if abs((timestamp1 - timestamp2).total_seconds()) <= time_threshold:
+					pair = tuple(sorted([taxi1, taxi2]))
+					unique_pairs.add(pair)
 
 	return list(unique_pairs)
 
@@ -33,5 +42,5 @@ def process_json(json_file_path, csv_file_path):
 	print(f"Unique pairs saved to {csv_file_path}")
 
 if __name__ == "__main__":
-	process_json('./files/geolife.json', './files/geolife.csv')
-	process_json('./files/tdrive.json', './files/tdrive.csv')
+	process_json('./files/geolife.json', './files/geolife_time_1min.csv')
+	process_json('./files/tdrive.json', './files/tdrive_time_1min.csv')
