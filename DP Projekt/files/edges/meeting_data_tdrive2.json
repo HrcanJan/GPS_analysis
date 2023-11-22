@@ -1,0 +1,17 @@
+{"Taxi1": 10002, "Taxi2": 10033, "Location": {"Latitude": 39.92754, "Longitude": 116.41111}, "Distance (meters)": 0.07684297374498018, "Timestamp1": "2008-02-04 18:20:49", "Timestamp2": "2008-02-02 13:40:13"}
+{"Taxi1": 10058, "Taxi2": 10061, "Location": {"Latitude": 39.96132, "Longitude": 116.30241}, "Distance (meters)": 0.08585468656074045, "Timestamp1": "2008-02-03 22:13:08", "Timestamp2": "2008-02-02 13:33:35"}
+{"Taxi1": 10058, "Taxi2": 10061, "Location": {"Latitude": 39.96132, "Longitude": 116.30241}, "Distance (meters)": 0.08585468656074045, "Timestamp1": "2008-02-03 22:13:08", "Timestamp2": "2008-02-02 13:33:35"}
+{"Taxi1": 10047, "Taxi2": 10135, "Location": {"Latitude": 39.91461, "Longitude": 116.46507}, "Distance (meters)": 0.08538340776066639, "Timestamp1": "2008-02-03 17:48:30", "Timestamp2": "2008-02-02 13:36:58"}
+{"Taxi1": 10123, "Taxi2": 10147, "Location": {"Latitude": 39.92643, "Longitude": 116.18359}, "Distance (meters)": 0.046938883910048274, "Timestamp1": "2008-02-06 12:14:12", "Timestamp2": "2008-02-02 13:35:41"}
+{"Taxi1": 10123, "Taxi2": 10147, "Location": {"Latitude": 39.92643, "Longitude": 116.18359}, "Distance (meters)": 0.046938883910048274, "Timestamp1": "2008-02-06 12:14:12", "Timestamp2": "2008-02-02 13:35:41"}
+{"Taxi1": 10123, "Taxi2": 10147, "Location": {"Latitude": 39.92644, "Longitude": 116.18365}, "Distance (meters)": 0.0514918472109983, "Timestamp1": "2008-02-06 12:17:16", "Timestamp2": "2008-02-02 13:35:41"}
+{"Taxi1": 10123, "Taxi2": 10147, "Location": {"Latitude": 39.92644, "Longitude": 116.18365}, "Distance (meters)": 0.0514918472109983, "Timestamp1": "2008-02-06 12:19:14", "Timestamp2": "2008-02-02 13:35:41"}
+{"Taxi1": 10123, "Taxi2": 10147, "Location": {"Latitude": 39.92644, "Longitude": 116.18365}, "Distance (meters)": 0.0514918472109983, "Timestamp1": "2008-02-06 12:22:18", "Timestamp2": "2008-02-02 13:35:41"}
+{"Taxi1": 10123, "Taxi2": 10147, "Location": {"Latitude": 39.92644, "Longitude": 116.18365}, "Distance (meters)": 0.0514918472109983, "Timestamp1": "2008-02-06 12:24:16", "Timestamp2": "2008-02-02 13:35:41"}
+{"Taxi1": 10002, "Taxi2": 10194, "Location": {"Latitude": 39.92775, "Longitude": 116.41106}, "Distance (meters)": 0.05337363851164544, "Timestamp1": "2008-02-05 23:56:15", "Timestamp2": "2008-02-02 13:40:13"}
+{"Taxi1": 10002, "Taxi2": 102, "Location": {"Latitude": 39.92753, "Longitude": 116.4109}, "Distance (meters)": 0.0790232090934158, "Timestamp1": "2008-02-03 00:59:42", "Timestamp2": "2008-02-02 13:40:13"}
+{"Taxi1": 10002, "Taxi2": 102, "Location": {"Latitude": 39.92753, "Longitude": 116.4109}, "Distance (meters)": 0.0790232090934158, "Timestamp1": "2008-02-03 00:59:42", "Timestamp2": "2008-02-02 13:40:13"}
+{"Taxi1": 10108, "Taxi2": 10204, "Location": {"Latitude": 40.07186, "Longitude": 116.56507}, "Distance (meters)": 0.0, "Timestamp1": "2008-02-02 17:11:23", "Timestamp2": "2008-02-02 13:37:26"}
+{"Taxi1": 1014, "Taxi2": 1022, "Location": {"Latitude": 39.96281, "Longitude": 116.48356}, "Distance (meters)": 0.020753081760157374, "Timestamp1": "2008-02-04 15:04:17", "Timestamp2": "2008-02-02 13:37:50"}
+{"Taxi1": 10072, "Taxi2": 10248, "Location": {"Latitude": 40.01359, "Longitude": 116.35677}, "Distance (meters)": 0.03590448426893273, "Timestamp1": "2008-02-05 01:00:28", "Timestamp2": "2008-02-02 14:16:47"}
+{"Taxi1": 10123, "Taxi2": 1025, "Location": {"Latitude": 39.92637, "Longitude": 116.18315}, "Distance (meters)": 0.025801319346027196, "Timestamp1": "2008-02-03 07:42:20", "Timestamp2": "2008-02-02 13:35:41"}

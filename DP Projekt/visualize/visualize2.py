@@ -58,6 +58,6 @@ def draw_graph(edges):
 	fig.show()
 
 if __name__ == "__main__":
-	csv_file_path = '../files/geolife.csv'
+	csv_file_path = '../files/edges/geolife.csv'
 	edges = load_csv(csv_file_path)
 	draw_graph(edges)

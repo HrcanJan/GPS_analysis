@@ -6,7 +6,7 @@ from datetime import datetime
 meeting_data = []
 
 # Open the JSON file for reading
-with open("../files/geolife.json", "r") as json_file:
+with open("../files/edges/geolife.json", "r") as json_file:
 	meeting_data = json.load(json_file)
 
 # Create a NetworkX graph
