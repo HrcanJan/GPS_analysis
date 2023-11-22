@@ -9,7 +9,7 @@ def load_json(file_path):
 
 def extract_unique_pairs(data):
 	include_time = True
-	time_threshold = 60 * 60 * 24 # seconds
+	time_threshold = 24 * 60 * 60 # seconds
 
 	unique_pairs = set()
 	for entry in data:
