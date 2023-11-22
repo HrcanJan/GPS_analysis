@@ -24,6 +24,9 @@ def extract_unique_pairs(data):
 				if abs((timestamp1 - timestamp2).total_seconds()) <= time_threshold:
 					pair = tuple(sorted([taxi1, taxi2]))
 					unique_pairs.add(pair)
+			else:
+				pair = tuple(sorted([taxi1, taxi2]))
+				unique_pairs.add(pair)
 
 	return list(unique_pairs)
 
@@ -42,5 +45,5 @@ def process_json(json_file_path, csv_file_path):
 	print(f"Unique pairs saved to {csv_file_path}")
 
 if __name__ == "__main__":
-	# process_json('./files/geolife.json', './files/geolife_time_1day.csv')
+	process_json('./files/geolife.json', './files/geolife.csv')
 	process_json('./files/tdrive2.json', './files/tdrive.csv')
