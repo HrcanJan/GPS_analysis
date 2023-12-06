@@ -7,10 +7,7 @@ def load_json(file_path):
 		data = json.load(json_file)
 	return data
 
-def extract_unique_pairs(data):
-	include_time = False
-	time_threshold = 60 # seconds
-
+def extract_unique_pairs(data, include_time, time_threshold):
 	unique_pairs = set()
 	for entry in data:
 		taxi1 = entry.get('Taxi1')
@@ -33,17 +30,30 @@ def extract_unique_pairs(data):
 def save_to_csv(unique_pairs, csv_file):
 	with open(csv_file, 'w', newline='') as csvfile:
 		csv_writer = csv.writer(csvfile)
-		csv_writer.writerow(['Taxi1', 'Taxi2'])  # Header
+		csv_writer.writerow(['Taxi1', 'Taxi2'])
 
 		for pair in unique_pairs:
 			csv_writer.writerow(pair)
 
 def process_json(json_file_path, csv_file_path):
 	data = load_json(json_file_path)
-	unique_pairs = extract_unique_pairs(data)
-	save_to_csv(unique_pairs, csv_file_path)
-	print(f"Unique pairs saved to {csv_file_path}")
+
+	unique_pairs = extract_unique_pairs(data, False, 60)
+	save_to_csv(unique_pairs, csv_file_path + '.csv')
+	print(f"Unique pairs saved to {csv_file_path + '.csv'}")
+
+	unique_pairs = extract_unique_pairs(data, True, 60)
+	save_to_csv(unique_pairs, csv_file_path + '_time_1min.csv')
+	print(f"Unique pairs saved to {csv_file_path + '_time_1min.csv'}")
+
+	unique_pairs = extract_unique_pairs(data, True, 60 * 30)
+	save_to_csv(unique_pairs, csv_file_path + '_time_30min.csv')
+	print(f"Unique pairs saved to {csv_file_path + '_time_30min.csv'}")
+
+	unique_pairs = extract_unique_pairs(data, True, 60 * 60 * 24)
+	save_to_csv(unique_pairs, csv_file_path + '_time_1day.csv')
+	print(f"Unique pairs saved to {csv_file_path + '_time_1day.csv'}")
 
 if __name__ == "__main__":
-	process_json('../files/edges/geolife.json', '../files/edges/geolife.csv')
-	process_json('../files/edges/tdrive2.json', '../files/edges/tdrive.csv')
+	process_json('./files/edges/geolife.json', './files/edges/geolife')
+	process_json('./files/edges/tdrive.json', './files/edges/tdrive')

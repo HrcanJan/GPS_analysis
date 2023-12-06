@@ -21,10 +21,10 @@ def visualize_graph(edges):
 
 	nt.from_nx(G)
 
-	nt.show('../files/graphs/graph.html')
+	nt.show('./files/graphs/graph.html')
 
 if __name__ == "__main__":
 	# ADJUST FILE PATH HERE
-	csv_file_path = '../files/edges/geolife.csv'
+	csv_file_path = './files/edges/geolife.csv'
 	edges = load_csv(csv_file_path)
 	visualize_graph(edges)
