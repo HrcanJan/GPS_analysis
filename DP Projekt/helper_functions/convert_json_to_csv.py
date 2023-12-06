@@ -45,5 +45,5 @@ def process_json(json_file_path, csv_file_path):
 	print(f"Unique pairs saved to {csv_file_path}")
 
 if __name__ == "__main__":
-	process_json('./files/edges/geolife.json', './files/edges/geolife.csv')
-	process_json('./files/edges/tdrive2.json', './files/edges/tdrive.csv')
+	process_json('../files/edges/geolife.json', '../files/edges/geolife.csv')
+	process_json('../files/edges/tdrive2.json', '../files/edges/tdrive.csv')
