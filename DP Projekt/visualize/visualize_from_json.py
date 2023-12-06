@@ -12,9 +12,10 @@ with open("../files/edges/geolife.json", "r") as json_file:
 # Create a NetworkX graph
 G = nx.Graph()
 
+# ADJUST THRESHOLDS HERE
 include_time = False
 time_threshold = 60 # 60 seconds
-distance_threshold = 0.005 # 100 meters
+distance_threshold = 0.005 # 50 meters
 
 for meeting in meeting_data:
 	if(meeting["Distance (meters)"] < distance_threshold):

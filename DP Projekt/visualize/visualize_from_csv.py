@@ -1,6 +1,5 @@
 import csv
 import networkx as nx
-import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 
 def load_csv(file_path):
@@ -59,5 +58,33 @@ def draw_graph(edges):
 
 if __name__ == "__main__":
 	csv_file_path = '../files/edges/geolife.csv'
+	edges = load_csv(csv_file_path)
+	draw_graph(edges)
+	
+	csv_file_path = '../files/edges/geolife_time_1min.csv'
+	edges = load_csv(csv_file_path)
+	draw_graph(edges)
+
+	csv_file_path = '../files/edges/geolife_time_30min.csv'
+	edges = load_csv(csv_file_path)
+	draw_graph(edges)
+
+	csv_file_path = '../files/edges/geolife_time_1h.csv'
+	edges = load_csv(csv_file_path)
+	draw_graph(edges)
+
+	csv_file_path = '../files/edges/tdrive.csv'
+	edges = load_csv(csv_file_path)
+	draw_graph(edges)
+
+	csv_file_path = '../files/edges/tdrive_time_1min.csv'
+	edges = load_csv(csv_file_path)
+	draw_graph(edges)
+
+	csv_file_path = '../files/edges/tdrive_time_30min.csv'
+	edges = load_csv(csv_file_path)
+	draw_graph(edges)
+
+	csv_file_path = '../files/edges/tdrive_time_1h.csv'
 	edges = load_csv(csv_file_path)
 	draw_graph(edges)
