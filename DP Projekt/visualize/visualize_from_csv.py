@@ -10,19 +10,21 @@ def load_csv(file_path):
 
 	return edges
 
-def draw_graph(edges):
+def draw_graph(edges, all_nodes):
 	G = nx.Graph()
+
+	G.add_nodes_from(all_nodes)
 	G.add_edges_from(edges)
 
 	pos = nx.spring_layout(G)
 
 	node_trace = go.Scatter(
-	x=[pos[x][0] for x in G.nodes()],
-	y=[pos[x][1] for x in G.nodes()],
-	mode="markers",
-	marker=dict(size=10, color="blue"),
-	text=[str(node) for node in G.nodes()],
-	hoverinfo="text"
+		x=[pos[x][0] for x in G.nodes()],
+		y=[pos[x][1] for x in G.nodes()],
+		mode="markers",
+		marker=dict(size=10, color="blue"),
+		text=[str(node) for node in G.nodes()],
+		hoverinfo="text"
 	)
 
 	edge_x = []
@@ -30,12 +32,8 @@ def draw_graph(edges):
 	for edge in G.edges():
 		x0, y0 = pos[edge[0]]
 		x1, y1 = pos[edge[1]]
-		edge_x.append(x0)
-		edge_x.append(x1)
-		edge_x.append(None)
-		edge_y.append(y0)
-		edge_y.append(y1)
-		edge_y.append(None)
+		edge_x.extend([x0, x1, None])
+		edge_y.extend([y0, y1, None])
 
 	edge_trace = go.Scatter(
 		x=edge_x,
@@ -57,33 +55,39 @@ def draw_graph(edges):
 	fig.show()
 
 if __name__ == "__main__":
+	node_path = './files/nodes/geolife.csv'
+	nodes = load_csv(node_path)
+
 	csv_file_path = './files/edges/geolife.csv'
 	edges = load_csv(csv_file_path)
 	draw_graph(edges)
 	
 	csv_file_path = './files/edges/geolife_time_1min.csv'
 	edges = load_csv(csv_file_path)
-	draw_graph(edges)
+	draw_graph(edges, nodes)
 
 	csv_file_path = './files/edges/geolife_time_30min.csv'
 	edges = load_csv(csv_file_path)
-	draw_graph(edges)
+	draw_graph(edges, nodes)
 
 	csv_file_path = './files/edges/geolife_time_1day.csv'
 	edges = load_csv(csv_file_path)
-	draw_graph(edges)
+	draw_graph(edges, nodes)
+
+	node_path = './files/nodes/tdrive.csv'
+	nodes = load_csv(node_path)
 
 	csv_file_path = './files/edges/tdrive.csv'
 	edges = load_csv(csv_file_path)
-	draw_graph(edges)
+	draw_graph(edges, nodes)
 
 	csv_file_path = './files/edges/tdrive_time_1min.csv'
 	edges = load_csv(csv_file_path)
-	draw_graph(edges)
+	draw_graph(edges, nodes)
 
 	csv_file_path = './files/edges/tdrive_time_30min.csv'
 	edges = load_csv(csv_file_path)
-	draw_graph(edges)
+	draw_graph(edges, nodes)
 
 	csv_file_path = './files/edges/tdrive_time_1day.csv'
 	edges = load_csv(csv_file_path)
