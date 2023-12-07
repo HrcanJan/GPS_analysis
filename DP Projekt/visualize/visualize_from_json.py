@@ -1,19 +1,32 @@
 import networkx as nx
 import plotly.graph_objects as go
 import json
+import csv
 from datetime import datetime
 
 meeting_data = []
+
+def load_csv(file_path):
+	with open(file_path, 'r') as csvfile:
+		reader = csv.reader(csvfile)
+		next(reader)
+		edges = [tuple(map(int, row)) for row in reader]
+
+	return edges
 
 # Open the JSON file for reading
 with open("./files/edges/geolife.json", "r") as json_file:
 	meeting_data = json.load(json_file)
 
+node_path = './files/nodes/geolife.csv'
+nodes = load_csv(node_path)
+
 # Create a NetworkX graph
 G = nx.Graph()
+G.add_nodes_from(nodes)
 
 # ADJUST THRESHOLDS HERE
-include_time = False
+include_time = True
 time_threshold = 60 # 60 seconds
 distance_threshold = 0.005 # 50 meters
 
@@ -26,12 +39,12 @@ for meeting in meeting_data:
 		
 		if include_time == True:
 			if abs((timestamp1 - timestamp2).total_seconds()) <= time_threshold:
-				G.add_node(taxi1)
-				G.add_node(taxi2)
+				# G.add_node(taxi1)
+				# G.add_node(taxi2)
 				G.add_edge(taxi1, taxi2)
 		else:
-			G.add_node(taxi1)
-			G.add_node(taxi2)
+			# G.add_node(taxi1)
+			# G.add_node(taxi2)
 			G.add_edge(taxi1, taxi2)
 
 pos = nx.spring_layout(G)

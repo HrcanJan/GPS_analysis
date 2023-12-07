@@ -10,10 +10,10 @@ def load_csv(file_path):
 
 	return edges
 
-def draw_graph(edges, all_nodes):
+def draw_graph(edges, nodes):
 	G = nx.Graph()
 
-	G.add_nodes_from(all_nodes)
+	G.add_nodes_from(nodes)
 	G.add_edges_from(edges)
 
 	pos = nx.spring_layout(G)
