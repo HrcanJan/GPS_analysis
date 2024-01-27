@@ -26,8 +26,8 @@ def visualize_graph(edges, nodes):
 
 if __name__ == "__main__":
 	# ADJUST FILE PATH HERE
-	node_path = './files/nodes/geolife.csv'
-	edges_path = './files/edges/geolife_time_1min.csv'
+	node_path = './files/nodes/tdrive.csv'
+	edges_path = './files/edges/tdrive_time_1day.csv'
 	edges = load_csv(edges_path)
 	nodes = load_csv(node_path)
 	visualize_graph(edges, nodes)
