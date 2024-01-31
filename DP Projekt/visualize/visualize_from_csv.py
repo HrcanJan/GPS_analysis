@@ -55,16 +55,16 @@ def draw_graph(edges, nodes):
 	fig.show()
 
 if __name__ == "__main__":
-	# node_path = './files/nodes/geolife.csv'
-	# nodes = load_csv(node_path)
+	node_path = './files/nodes/geolife.csv'
+	nodes = load_csv(node_path)
 
 	# csv_file_path = './files/edges/geolife.csv'
 	# edges = load_csv(csv_file_path)
 	# draw_graph(edges, nodes)
 	
-	# csv_file_path = './files/edges/geolife_time_1min.csv'
-	# edges = load_csv(csv_file_path)
-	# draw_graph(edges, nodes)
+	csv_file_path = './files/edges/geolife_time_1min.csv'
+	edges = load_csv(csv_file_path)
+	draw_graph(edges, nodes)
 
 	# csv_file_path = './files/edges/geolife_time_30min.csv'
 	# edges = load_csv(csv_file_path)
@@ -74,12 +74,12 @@ if __name__ == "__main__":
 	# edges = load_csv(csv_file_path)
 	# draw_graph(edges, nodes)
 
-	node_path = './files/nodes/tdrive.csv'
-	nodes = load_csv(node_path)
+	# node_path = './files/nodes/tdrive.csv'
+	# nodes = load_csv(node_path)
 
-	csv_file_path = './files/edges/tdrive.csv'
-	edges = load_csv(csv_file_path)
-	draw_graph(edges, nodes)
+	# csv_file_path = './files/edges/tdrive.csv'
+	# edges = load_csv(csv_file_path)
+	# draw_graph(edges, nodes)
 
 	# csv_file_path = './files/edges/tdrive_time_1min.csv'
 	# edges = load_csv(csv_file_path)

@@ -10,11 +10,12 @@ def load_json(file_path):
 def extract_unique_pairs(data, include_time, time_threshold):
 	unique_pairs = set()
 	for entry in data:
-		taxi1 = entry.get('Taxi1')
-		taxi2 = entry.get('Taxi2')
+		taxi1 = entry.get('Person ID 1')
+		taxi2 = entry.get('Person ID 2')
 
-		timestamp1 = datetime.strptime(entry.get('Timestamp1'), "%Y-%m-%d %H:%M:%S")
-		timestamp2 = datetime.strptime(entry.get('Timestamp2'), "%Y-%m-%d %H:%M:%S")
+		timestamps = entry.get('Timestamps')
+		timestamp1 = datetime.strptime(timestamps.get(str(taxi1)), "%Y-%m-%d %H:%M:%S")
+		timestamp2 = datetime.strptime(timestamps.get(str(taxi2)), "%Y-%m-%d %H:%M:%S")
 
 		if taxi1 is not None and taxi2 is not None:
 			if include_time == True:
@@ -58,5 +59,5 @@ def process_json(json_file_path, csv_file_path, person):
 	print(f"Unique pairs saved to {csv_file_path + '_time_1day.csv'}")
 
 if __name__ == "__main__":
-	process_json('./files/edges/geolife.json', './files/edges/geolife', True)
-	process_json('./files/edges/tdrive.json', './files/edges/tdrive', False)
+	process_json('./files/edges/new_geolife.json', './files/edges/geolife', True)
+	process_json('./files/edges/new_tdrive.json', './files/edges/tdrive', False)

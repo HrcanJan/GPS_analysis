@@ -22,12 +22,12 @@ def visualize_graph(edges, nodes):
 
 	nt.from_nx(G)
 
-	nt.show('./files/graphs/graph3.html')
+	nt.show('./files/graphs/graph1.html')
 
 if __name__ == "__main__":
 	# ADJUST FILE PATH HERE
-	node_path = './files/nodes/tdrive.csv'
-	edges_path = './files/edges/tdrive_time_1day.csv'
+	node_path = './files/nodes/geolife.csv'
+	edges_path = './files/edges/geolife_time_1min.csv'
 	edges = load_csv(edges_path)
 	nodes = load_csv(node_path)
 	visualize_graph(edges, nodes)
